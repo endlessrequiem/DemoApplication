@@ -15,10 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        setTitle(R.string.app_name)
-
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "This is what is a called a \"Snackbar\"", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Snackbar Notification", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
 
