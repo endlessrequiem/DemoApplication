@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,11 +15,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        setTitle(R.string.action_settings)
+
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "This is what is a called a \"Snackbar\"", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -30,9 +35,16 @@ class MainActivity : AppCompatActivity() {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
+
+            when (item.itemId) {
+                R.id.action_settings -> {
+                    Snackbar.make(findViewById(R.id.fab), "You clicked on settings", Snackbar.LENGTH_SHORT).show()
+                    return true
+                }
+
+            }
+        return super.onOptionsItemSelected(item)
     }
+
+
 }
